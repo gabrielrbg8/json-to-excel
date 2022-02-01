@@ -5,17 +5,22 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class UserFeatureTest extends TestCase
 {
+    use RefreshDatabase;
     /**
-     * A basic test example.
+     * Test to create an user
      *
      * @return void
      */
-    public function test_example()
+    public function test_create_user()
     {
-        $response = $this->get('/');
+        $response = $this->post('api/users', [
+            'name' => 'Gabriel',
+            'email' => 'gabrielrbg8@outlook.com',
+            'password' => '12345678'
+        ]);
 
-        $response->assertStatus(200);
+        $response->assertStatus(201);
     }
 }

@@ -7,18 +7,18 @@ services:
         uid: 1000
       context: ./
       dockerfile: Dockerfile
-    image: boilerplate
-    container_name: boilerplate-app
+    image: test
+    container_name: test-app
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
       - ./:/var/www
     networks:
-      - boilerplate
+      - test
 
   db:
     image: mysql:5.7
-    container_name: boilerplate-db
+    container_name: test-db
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
@@ -26,15 +26,17 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_USER: ${DB_USERNAME}
       SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
+      SERVICE_NAME : 'mysql'
+    ports:
+      - "3306:3306"
     volumes:
       - ./docker-compose/mysql:/docker-entrypoint-initdb.d
     networks:
-      - boilerplate
+      - test
 
   nginx:
     image: nginx:alpine
-    container_name: boilerplate-nginx
+    container_name: test-nginx
     restart: unless-stopped
     ports:
       - 8000:80
@@ -42,8 +44,8 @@ services:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d/
     networks:
-      - boilerplate
+      - test
 
 networks:
-  boilerplate:
+  test:
     driver: bridge

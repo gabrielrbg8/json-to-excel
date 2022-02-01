@@ -28,7 +28,10 @@ Route::group([
         Route::post('signup', '\App\Http\Controllers\Auth\AuthController@signup');
     });
 
-    Route::group(['middleware' => ['jwt.auth']], function() {
+    //Route::group(['middleware' => ['jwt.auth']], function() {
         Route::apiResource('users', '\App\Http\Controllers\Users\UserController');
-    });
+        Route::apiResource('exportables', '\App\Http\Controllers\Exportable\ExportableController');
+    //});
+
+    
 });

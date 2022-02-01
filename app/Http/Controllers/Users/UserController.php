@@ -37,7 +37,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->fill($request->all());
+        $user->save();
+
+        return $this->showOne($user, 201);
     }
 
     /**
@@ -67,14 +71,5 @@ class UserController extends Controller
         return $this->showOne($user, 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
-    }
+    
 }

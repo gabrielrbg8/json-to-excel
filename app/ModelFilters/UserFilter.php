@@ -16,25 +16,9 @@ class UserFilter extends ModelFilter
      */
     public $relations = [];
 
-
-    public function setup()
-    {
-        $user = Auth::user();
-
-        if (!$user) return null;
-
-        if (!$user->isAdmin()) {
-            return $this->related('profile', 'name', '!=', Constants::PROFILE_ADMIN);
-        }
-    }
-
     public function name($value)
     {
         return $this->where('name', 'LIKE', "%$value%");
     }
 
-    public function username($value)
-    {
-        return $this->where('username', 'LIKE', "%$value%");
-    }
 }

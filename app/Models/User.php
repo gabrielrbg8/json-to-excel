@@ -26,7 +26,6 @@ class User extends Authenticatable implements JWTSubject
         'name',
         'email',
         'password',
-        'profile_id',
     ];
 
     /**
@@ -87,13 +86,4 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public function isAdmin()
-    {
-        return $this->profile->name == Constants::PROFILE_ADMIN;
-    }
-
-    public function profile()
-    {
-        return $this->hasOne(Profile::class, 'id', 'profile_id');
-    }
 }

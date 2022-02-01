@@ -33,7 +33,7 @@ curl -X POST \
     "http://localhost/api/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"alias","password":"excepturi"}'
+    -d '{"email":"tempore","password":"quasi"}'
 
 ```
 
@@ -48,8 +48,8 @@ let headers = {
 };
 
 let body = {
-    "email": "alias",
-    "password": "excepturi"
+    "email": "tempore",
+    "password": "quasi"
 }
 
 fetch(url, {
@@ -67,10 +67,10 @@ fetch(url, {
 ```json
 {
     "data": {
-        "name": "Enid Kulas Jr.",
-        "username": "gswift",
-        "email": "nelle35@marquardt.biz",
-        "birth_date": "nelle35@marquardt.biz",
+        "name": "Aileen Kassulke MD",
+        "username": "ytreutel",
+        "email": "glover.celestine@yahoo.com",
+        "birth_date": "glover.celestine@yahoo.com",
         "profile_id": 0
     }
 }
@@ -199,10 +199,10 @@ fetch(url, {
 ```json
 {
     "data": {
-        "name": "Darrin Doyle",
-        "username": "ledner.unique",
-        "email": "muller.destiny@yahoo.com",
-        "birth_date": "muller.destiny@yahoo.com",
+        "name": "Elmo Waelchi",
+        "username": "paige97",
+        "email": "aiden18@yahoo.com",
+        "birth_date": "aiden18@yahoo.com",
         "profile_id": 0
     }
 }
@@ -250,10 +250,10 @@ fetch(url, {
 ```json
 {
     "data": {
-        "name": "Alessandra Rodriguez IV",
-        "username": "connelly.anna",
-        "email": "usatterfield@gmail.com",
-        "birth_date": "usatterfield@gmail.com",
+        "name": "Reta Eichmann",
+        "username": "ukovacek",
+        "email": "prosacco.rey@gleason.com",
+        "birth_date": "prosacco.rey@gleason.com",
         "profile_id": 0
     }
 }
@@ -276,7 +276,7 @@ APIs for managing users
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/users?name=corrupti" \
+    -G "http://localhost/api/users?name=velit" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -287,7 +287,7 @@ const url = new URL(
 );
 
 let params = {
-    "name": "corrupti",
+    "name": "velit",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -312,17 +312,17 @@ fetch(url, {
 {
     "data": [
         {
-            "name": "Isai Kuphal",
-            "username": "callie.douglas",
-            "email": "jdibbert@hotmail.com",
-            "birth_date": "jdibbert@hotmail.com",
+            "name": "Nikko Orn",
+            "username": "edyth.cronin",
+            "email": "lisa52@yahoo.com",
+            "birth_date": "lisa52@yahoo.com",
             "profile_id": 0
         },
         {
-            "name": "Zora Koepp",
-            "username": "talon51",
-            "email": "dvandervort@gmail.com",
-            "birth_date": "dvandervort@gmail.com",
+            "name": "Mr. Korey Orn IV",
+            "username": "hailey00",
+            "email": "charity.pacocha@carter.com",
+            "birth_date": "charity.pacocha@carter.com",
             "profile_id": 0
         }
     ]
@@ -414,10 +414,10 @@ fetch(url, {
 ```json
 {
     "data": {
-        "name": "Cole Langosh",
-        "username": "alexander20",
-        "email": "lilliana13@roob.com",
-        "birth_date": "lilliana13@roob.com",
+        "name": "Dr. Royal Quigley Sr.",
+        "username": "conor35",
+        "email": "fisher.alyce@adams.com",
+        "birth_date": "fisher.alyce@adams.com",
         "profile_id": 0
     }
 }
@@ -439,7 +439,7 @@ curl -X PUT \
     "http://localhost/api/users/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"password":"consequuntur"}'
+    -d '{"password":"excepturi"}'
 
 ```
 
@@ -454,7 +454,7 @@ let headers = {
 };
 
 let body = {
-    "password": "consequuntur"
+    "password": "excepturi"
 }
 
 fetch(url, {
