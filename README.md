@@ -29,18 +29,20 @@ To create it, we use:
          docker-compose restart
          docker-compose exec app composer install
          docker-compose exec app php artisan migrate:fresh --seed
+         docker-compose exec app php artisan apidoc:generate
     ```
                      A new php development server will be started in: localhost:8000
                      
                     To make testing easier, the seeders created User records, which is 
                     an "exportable" model, so to test the export, just run the following command:
-                       ```sh
-                            docker-compose exec app php artisan exportable:export \\App\\Models\\User
-                       ```
+   ```sh
+        docker-compose exec app php artisan exportable:export \\App\\Models\\User
+   ```
                     If we have Users that not have exported, it generates a CSV file with User's data 
                     in the follow path: storage/app/public/laravel-excel.
+                    
+                    To view API documentation, access: localhost:8000/doc
 
-    These commands will, respectively: update project dependencies, run database migrations and generate API documentation(localhost:8000/docs to access).
 
 ## External packages and services
 
@@ -50,6 +52,7 @@ Instructions on how to use them in your own app are linked below.
 | Plugin | Doc |
 | ------ | ------ |
 | Laravel Excel | https://docs.laravel-excel.com/3.1/getting-started/ |
+| Laravel API Doc Generator | https://beyondco.de/docs/laravel-apidoc-generator/getting-started/installation |
 | EloquentFilter | https://github.com/Tucker-Eric/EloquentFilter |
 | Laravel Fractal | https://fractal.thephpleague.com/ |
 
