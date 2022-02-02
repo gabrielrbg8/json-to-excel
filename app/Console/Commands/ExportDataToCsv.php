@@ -6,6 +6,7 @@ use App\Jobs\ExportDataToCsv as JobsExportDataToCsv;
 use App\Models\Exportable;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 
 class ExportDataToCsv extends Command
 {
@@ -43,6 +44,7 @@ class ExportDataToCsv extends Command
         $modelName = $this->argument('model');
         if (!class_exists($modelName)) {
             $this->error('Model ' . $this->argument('model') . ' does not exist.');
+            Log::error('Model ' . $this->argument('model') . ' does not exist.');
             return -1;
         }
 
@@ -52,12 +54,13 @@ class ExportDataToCsv extends Command
             $exportables = Exportable::where('exported', false)->get();
             if ($exportables->isEmpty()) {
                 $this->info('Doesnt exists data to export');
-                return -1;
+                return 0;
             }
             JobsExportDataToCsv::dispatch($exportables->sortByDesc('created_at'));
             return 0;
         } else {
             $this->error('Model ' . $this->argument('model') . ' does not exist.');
+            Log::error('Model ' . $this->argument('model') . ' does not exist.');
             return -1;
         }
     }

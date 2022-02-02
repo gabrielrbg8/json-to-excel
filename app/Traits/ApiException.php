@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+use Illuminate\Support\Facades\Log;
 
 trait ApiException
 {
@@ -51,6 +52,7 @@ trait ApiException
      */
     protected function validationException($exception)
     {
+        
         return response()->json([
             "error" => $exception->errors(),
             "errCode" => $exception->status

@@ -38,7 +38,7 @@ class ExportDataToCsv implements ShouldQueue
     public function handle()
     {
         Excel::download(new $this->exportClass($this->getDataToExport()), 'exportable_' . uniqid() . '.csv');
-       // $this->markAsExported();
+        $this->markAsExported();
         return 0;
     }
 
